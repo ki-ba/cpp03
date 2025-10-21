@@ -1,0 +1,7 @@
+*/fixed_*
+*/*.o
+*/.cache
+*/.DS_Store
+*/*.json
+*/.obj
+*/claptrap
