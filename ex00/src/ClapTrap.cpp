@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:37:27 by kbarru            #+#    #+#             */
-/*   Updated: 2025/10/21 13:53:29 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/10/21 16:10:16 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 ClapTrap::ClapTrap()
 {
 	std::cout << "[ClapTrap]	" << this->_name << " default constructor called" << std::endl;
-}
-
+}	
 ClapTrap::ClapTrap(const std::string name)
 	: _name(name), _maxHp(CLAP_BASE_HP), _hitPoints(CLAP_BASE_HP), _energyPoints(CLAP_BASE_EP), _attackDamage(CLAP_BASE_AP)
 {
@@ -65,7 +64,7 @@ void ClapTrap::attack(const std::string &target)
 	if (this->_hitPoints <= 0)
 		std::cout << "[ClapTrap]	" << this->_name << "'s carcass still moves its arm in a faint movement, as if trying to hit something." << std::endl;
 	else if (this->_energyPoints <= 0)
-		std::cout << this->_name << " sorely raises its arm, but is to tired to hit anything." << std::endl;
+		std::cout << "[ClapTrap]	" << this->_name << " sorely raises its arm, but is to tired to hit anything." << std::endl;
 	else
 	{
 		std::cout << "[ClapTrap]	" << this->_name <<" attacks " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
@@ -100,8 +99,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "[ClapTrap]	" << this->_name << " removes the dust from its shoulders. It is so shiny now!" << std::endl;
 	else
 	{
-		std::cout << "[ClapTrap]	" << this->_name << " repairs itself for" << amount << " hit points." << std::endl;
-		if (this->_hitPoints + amount < this->_maxHp)
+		std::cout << "[ClapTrap]	" << this->_name << " repairs itself for " << amount << " hit points." << std::endl;
+		if (this->_hitPoints + amount > this->_maxHp)
 			this->_hitPoints = this->_maxHp;
 		else
 		this->_hitPoints += amount;
