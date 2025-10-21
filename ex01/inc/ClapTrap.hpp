@@ -16,9 +16,9 @@
 #include <string>
 #include <cstdlib>
 
-#define CLAP_BASE_HP 10U
-#define CLAP_BASE_EP 10U
-#define CLAP_BASE_AP 0U
+#define CLAP_BASE_HP 10
+#define CLAP_BASE_EP 10
+#define CLAP_BASE_AP 0
 
 class ClapTrap
 {

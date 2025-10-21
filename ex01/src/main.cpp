@@ -6,32 +6,35 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:39:23 by kbarru            #+#    #+#             */
-/*   Updated: 2025/10/21 11:42:17 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/10/21 13:54:27 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 #define REPAIR_AMOUNT 5
-#define MAX_TURNS 10
+#define MAX_TURNS 20
 
 int	main(void)
 {
 	std::string	seed = "464711149";
 	int			i = 0;
-	ClapTrap	davin("Davin");
+	ScavTrap	davin("Davin");
 	ClapTrap	steve("Steve");
 	
+	std::cout << std::endl << std::endl; // COMBAT BEGIN
 
-	std::cout << std::endl << "----- BATTLE START -----" << std::endl << std::endl;
 
 	while(i < MAX_TURNS && (davin.getEnergyPoints() > 0 || steve.getEnergyPoints() > 0) && davin.getHitPoints() > 0 && steve.getHitPoints() > 0)
 	{
 		if (i % 2 == 0)
 		{
 			// std::cout << i << " is even : Davin's turn" << std::endl;
-			if ((seed[i % seed.length()]) % 2 == 0)
+			if (i < 2)
+				davin.guardGate();
+			else if ((seed[i % seed.length()]) % 2 == 0)
 			{
 				// std::cout << seed[i % seed.length()] << " is even : attack" << std::endl;
 				davin.attack(steve.getName());
@@ -60,5 +63,6 @@ int	main(void)
 		}
 		++i;
 	}
-	std::cout << std::endl << "----- BATTLE END -----" << std::endl << std::endl;
+
+	std::cout << std::endl << std::endl; // COMBAT END
 }
