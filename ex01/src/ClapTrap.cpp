@@ -18,7 +18,7 @@ ClapTrap::ClapTrap()
 	std::cout << "[ClapTrap]	" << this->_name << " default constructor called" << std::endl;
 }	
 ClapTrap::ClapTrap(const std::string name)
-	: _name(name), _hitPoints(CLAP_BASE_HP), _energyPoints(CLAP_BASE_EP), _attackDamage(CLAP_BASE_AP)
+	: _name(name), _maxHp(CLAP_BASE_HP), _hitPoints(CLAP_BASE_HP), _energyPoints(CLAP_BASE_EP), _attackDamage(CLAP_BASE_AP)
 {
 	std::cout << "[ClapTrap]	" << this->_name << " string constructor called" << std::endl;
 }
@@ -34,6 +34,7 @@ ClapTrap::ClapTrap(const std::string name, unsigned int maxHp, unsigned int hitP
 }
 ClapTrap::ClapTrap(const ClapTrap &other)
 	: _name(other._name),
+	_maxHp(other._maxHp),
 	_hitPoints(other._hitPoints),
 	_energyPoints(other._energyPoints),
 	_attackDamage(other._attackDamage)
@@ -44,6 +45,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	this->_name = other._name;
+	this->_maxHp = other._maxHp;
 	this->_hitPoints = other._hitPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_attackDamage = other._attackDamage;
@@ -89,7 +91,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << this->_name << ": "<< this->_hitPoints << "HP" << std::endl;
 	if (this->_hitPoints <= 0)
 		std::cout << "[ClapTrap]	" << this->_name << " frenetically throws its own metallic remains on what's left of its body, in a vain attempt to repair itself." << std::endl;
 	else if (this->_energyPoints <= 0)

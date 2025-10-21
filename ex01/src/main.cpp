@@ -24,8 +24,8 @@ int	main(void)
 	ScavTrap	davin("Davin");
 	ClapTrap	steve("Steve");
 	
-	std::cout << std::endl << std::endl; // COMBAT BEGIN
 
+	std::cout << std::endl << " <-- COMBAT START --> " << std::endl << std::endl;
 
 	while(i < MAX_TURNS && (davin.getEnergyPoints() > 0 || steve.getEnergyPoints() > 0) && davin.getHitPoints() > 0 && steve.getHitPoints() > 0)
 	{
@@ -64,5 +64,5 @@ int	main(void)
 		++i;
 	}
 
-	std::cout << std::endl << std::endl; // COMBAT END
+	std::cout << std::endl << " <-- COMBAT END --> " << std::endl << std::endl;
 }
