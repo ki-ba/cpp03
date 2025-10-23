@@ -18,7 +18,7 @@
 #define REPAIR_AMOUNT 5
 #define MAX_TURNS 500
 
-static void fight(ScavTrap &f1, DiamondTrap &f2, std::string seed)
+void fight(ScavTrap &f1, DiamondTrap &f2, std::string seed)
 {
 	int			i = 0;
 	std::cout << std::endl << " <-- COMBAT START --> " << std::endl << std::endl;
@@ -78,16 +78,20 @@ static void fight(ScavTrap &f1, DiamondTrap &f2, std::string seed)
 int	main(void)
 {
 	std::string	seed = "464711149";
-	ScavTrap	davin("Davin");
+	ScavTrap	steve("Steve");
 
 	std::cout << std::endl << std::endl;
 
-	DiamondTrap	steve("Steve");
-	
-	steve.whoAmI();
-	steve.highFiveGuys();
-	steve.guardGate();
+	DiamondTrap	davin("Davin");
+	DiamondTrap	darius("Darius");
 
-	fight(davin, steve, seed);
-	steve.highFiveGuys();
+	davin = darius;
+	davin.attack("the air");
+	davin.whoAmI();
+	// steve.whoAmI();
+	// steve.highFiveGuys();
+	// steve.guardGate();
+
+	// fight(davin, steve, seed);
+	// steve.highFiveGuys();
 }
