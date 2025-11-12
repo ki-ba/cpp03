@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-#include "ClapTrap.hpp"
 #include <iostream>
 
 FragTrap::FragTrap() : ClapTrap("Default_Frag", FRAG_BASE_HP, FRAG_BASE_EP, FRAG_BASE_AP)

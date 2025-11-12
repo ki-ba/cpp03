@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 #include <iostream>
 
 DiamondTrap::DiamondTrap() : ClapTrap("Default_Diamond_clap_name"),  ScavTrap("Default_Diamond"), FragTrap("Default_Diamond"), _name("Default_Diamond")
@@ -28,9 +26,6 @@ DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name")
 	this->_attackDamage = FRAG_BASE_AP;
 
 	std::cout << "[DiamondTrap]	" << this->_name << " string constructor called" << std::endl;
-	// std::cout << "[DiamondTrap]	HP : "<< this->_hitPoints << std::endl;
-	// std::cout << "[DiamondTrap]	EP : "<< this->_energyPoints << std::endl;
-	// std::cout << "[DiamondTrap]	AP : "<< this->_attackDamage<< std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
