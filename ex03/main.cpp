@@ -78,14 +78,12 @@ void fight(ScavTrap &f1, DiamondTrap &f2, std::string seed)
 int	main(void)
 {
 	std::string	seed = "464711149";
-	ScavTrap	steve("Steve");
+	// ScavTrap	steve("Steve");
 
 	std::cout << std::endl << std::endl;
 
 	DiamondTrap	davin("Davin");
-	DiamondTrap	darius("Darius");
 
-	davin = darius;
 	davin.attack("the air");
 	davin.whoAmI();
 	// steve.whoAmI();

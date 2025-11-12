@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:37:27 by kbarru            #+#    #+#             */
-/*   Updated: 2025/10/21 16:33:38 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/10/21 16:10:16 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		std::cout << "[ClapTrap]	" << this->_name << " takes " << amount << " damage." << std::endl;
-		if (amount > this->_hitPoints)
+		if (amount >= this->_hitPoints)
 		{
 			std::cout << "[ClapTrap]	" << this->_name << " falls with a chilling scream." << std::endl;
 			this->_hitPoints = 0;

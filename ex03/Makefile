@@ -1,13 +1,12 @@
 NAME = diamondtrap
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+DEP = $(addprefix $(OBJ_DIR), $(INC:%.hpp=%.d))
 
-INC_DIR = inc/
 OBJ_DIR = .obj/
-SRC_DIR = src/
 
 INC_P = $(addprefix $(INC_DIR), $(INC))
 
@@ -32,5 +31,7 @@ $(OBJ_DIR):
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(INC_P) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+$(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+-include $(DEP)

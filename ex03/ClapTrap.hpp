@@ -30,7 +30,7 @@ protected:
 	unsigned int	_attackDamage;
 
 public:
-	// ClapTrap();
+	ClapTrap();
 	ClapTrap(const std::string name);
 	ClapTrap(const std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	ClapTrap(const ClapTrap &other);

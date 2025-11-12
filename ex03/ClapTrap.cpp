@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:37:27 by kbarru            #+#    #+#             */
-/*   Updated: 2025/10/21 16:10:06 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/10/21 16:33:38 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
+	: _name("Default_Clap"), _maxHp(CLAP_BASE_HP), _hitPoints(CLAP_BASE_HP), _energyPoints(CLAP_BASE_EP), _attackDamage(CLAP_BASE_AP)
 {
 	std::cout << "[ClapTrap]	" << this->_name << " default constructor called" << std::endl;
 }	
+
 ClapTrap::ClapTrap(const std::string name)
 	: _name(name), _maxHp(CLAP_BASE_HP), _hitPoints(CLAP_BASE_HP), _energyPoints(CLAP_BASE_EP), _attackDamage(CLAP_BASE_AP)
 {
 	std::cout << "[ClapTrap]	" << this->_name << " string constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string name, unsigned int maxHp, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage)
+ClapTrap::ClapTrap(const std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage)
 	: _name(name),
-	_maxHp(maxHp),
+	_maxHp(hitPoints),
 	_hitPoints(hitPoints),
 	_energyPoints(energyPoints),
 	_attackDamage(attackDamage)
@@ -39,16 +41,21 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	_energyPoints(other._energyPoints),
 	_attackDamage(other._attackDamage)
 {
-	std::cout << "[ClapTrap]	" << this->_name << " created by copy" << std::endl;
+	std::cout << "[ClapTrap]	" << this->_name << " copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-	this->_name = other._name;
-	this->_maxHp = other._maxHp;
-	this->_hitPoints = other._hitPoints;
-	this->_energyPoints = other._energyPoints;
-	this->_attackDamage = other._attackDamage;
+	std::cout << "[ClapTrap]	copy assignment operator called" << std::endl;
+
+	if (this != &other)
+	{
+		this->_name = other._name;
+		this->_maxHp = other._maxHp;
+		this->_hitPoints = other._hitPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_attackDamage = other._attackDamage;
+	}
 
 	return (*this);
 }
@@ -79,7 +86,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		std::cout << "[ClapTrap]	" << this->_name << " takes " << amount << " damage." << std::endl;
-		if (amount > this->_hitPoints)
+		if (amount >= this->_hitPoints)
 		{
 			std::cout << "[ClapTrap]	" << this->_name << " falls with a chilling scream." << std::endl;
 			this->_hitPoints = 0;

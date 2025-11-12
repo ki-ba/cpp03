@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:37:27 by kbarru            #+#    #+#             */
-/*   Updated: 2025/10/21 16:10:16 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/10/21 16:10:06 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ ClapTrap::ClapTrap(const std::string name)
 	std::cout << "[ClapTrap]	" << this->_name << " string constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string name, unsigned int maxHp, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage)
+ClapTrap::ClapTrap(const std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage)
 	: _name(name),
-	_maxHp(maxHp),
+	_maxHp(hitPoints),
 	_hitPoints(hitPoints),
 	_energyPoints(energyPoints),
 	_attackDamage(attackDamage)
@@ -79,7 +79,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		std::cout << "[ClapTrap]	" << this->_name << " takes " << amount << " damage." << std::endl;
-		if (amount > this->_hitPoints)
+		if (amount >= this->_hitPoints)
 		{
 			std::cout << "[ClapTrap]	" << this->_name << " falls with a chilling scream." << std::endl;
 			this->_hitPoints = 0;

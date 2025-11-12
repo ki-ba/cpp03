@@ -32,7 +32,7 @@ protected:
 public:
 	ClapTrap();
 	ClapTrap(const std::string name);
-	ClapTrap(const std::string name, unsigned int _maxHp, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
+	ClapTrap(const std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
 	~ClapTrap();
