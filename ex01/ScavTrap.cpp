@@ -20,9 +20,6 @@ ScavTrap::ScavTrap() : ClapTrap("Default_Scav", SCAV_BASE_HP, SCAV_BASE_EP, SCAV
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name, SCAV_BASE_HP, SCAV_BASE_EP, SCAV_BASE_AP)
 {
 	std::cout << "[ScavTrap]	" << this->_name << " string constructor called" << std::endl;
-	// std::cout << "[ScavTrap]	HP : "<< this->_hitPoints << std::endl;
-	// std::cout << "[ScavTrap]	EP : "<< this->_energyPoints << std::endl;
-	// std::cout << "[ScavTrap]	AP : "<< this->_attackDamage<< std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
